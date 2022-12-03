@@ -79,7 +79,7 @@ class EmailVerificatioPage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  emailVerificatioController.sendVerificationEmail();
+                  //emailVerificatioController.sendVerificationEmail();
                 },
                 child: Text(
                   capitalize(AppTexts.reSendEmailVerification),

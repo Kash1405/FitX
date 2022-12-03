@@ -156,40 +156,32 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Center(
                               child: TabBarViewSection(
-                                title: capitalize(
-                                  'All workouts',
-                                ),
-                                dataList: WorkoutsList.allWorkoutsList,
-                              ),
-                            ),
-                            Center(
-                              child: TabBarViewSection(
-                                title: capitalize(
-                                  'Popular',
-                                ),
-                                dataList: WorkoutsList.popularWorkoutsList,
-                              ),
+                                  title: capitalize(
+                                    'Easy',
+                                  ),
+                                  dataList: WorkoutsList.easyWorkoutsList),
                             ),
                             Center(
                               child: TabBarViewSection(
                                   title: capitalize(
-                                    'hard',
+                                    'Medium',
+                                  ),
+                                  dataList: WorkoutsList.mediumWorkoutsList),
+                            ),
+                            Center(
+                              child: TabBarViewSection(
+                                  title: capitalize(
+                                    'Hard',
                                   ),
                                   dataList: WorkoutsList.hardWorkoutsList),
                             ),
                             Center(
                               child: TabBarViewSection(
-                                  title: capitalize(
-                                    'Full body',
-                                  ),
-                                  dataList: WorkoutsList.fullBodyWorkoutsList),
-                            ),
-                            Center(
-                              child: TabBarViewSection(
-                                  title: capitalize(
-                                    'Crossfit',
-                                  ),
-                                  dataList: WorkoutsList.crossFit),
+                                title: capitalize(
+                                  'All workouts',
+                                ),
+                                dataList: WorkoutsList.allWorkoutsList,
+                              ),
                             ),
                           ],
                         ),

@@ -12,6 +12,7 @@ import '../../../helpers/string_methods.dart';
 import '../../widgets/general_widgets/actionButton.dart';
 import 'componenets/RatingStars.dart';
 import '../../widgets/general_widgets/button.dart';
+import 'componenets/timer.dart';
 
 class WorkOutDetails extends StatelessWidget {
   WorkOutDetails({
@@ -43,6 +44,8 @@ class WorkOutDetails extends StatelessWidget {
       hasFreeTrial;
   final DetailsTabController _tabx = Get.put(DetailsTabController());
   final FunctionsController _controller = Get.put(FunctionsController());
+  var containers = <Container>[];
+  var hasTimerStopped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -278,25 +281,12 @@ class WorkOutDetails extends StatelessWidget {
                       child: CustomButton(
                         onPressed: () {},
                         isRounded: false,
-                        text: capitalize("\$ $priceInDollars"),
+                        text: capitalize("Start Exercise"),
                         isOutlined: false,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    DelayedDisplay(
-                      delay: Duration(milliseconds: delay + 800),
-                      child: CustomButton(
-                        onPressed: () {},
-                        isRounded: false,
-                        text: hasFreeTrial.toLowerCase() == "true"
-                            ? capitalize(AppTexts.freeTrial)
-                            : 
-                                capitalize(AppTexts.noFreeTrialAvailable),
-                        isOutlined: true,
-                      ),
-                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -304,4 +294,30 @@ class WorkOutDetails extends StatelessWidget {
       ],
     ));
   }
+}
+
+Container issue() {
+  return Container(
+    width: 500.0,
+    padding: EdgeInsets.only(top: 3.0, right: 0.0),
+    child: CountDownTimer(
+      secondsRemaining: 1200,
+      whenTimeExpires: () {
+        // print("Done");
+
+        const snackBar = SnackBar(
+          content: Text('Hurray!! Workout completed :)'),
+        );
+      },
+      countDownTimerStyle: const TextStyle(
+        // color: Color(0XFFf5a623),
+        // fontSize: 47.0,
+        fontFamily: 'SF-Pro Display',
+        fontSize: 70,
+        fontWeight: FontWeight.w800,
+        color: Colors.orange,
+        height: 0.0,
+      ),
+    ),
+  );
 }
